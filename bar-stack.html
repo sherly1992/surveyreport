@@ -1,0 +1,102 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=bar-stack&code=PYBwLglsB2AEC8sDeAoWszGAG0iAXMmuhgE4QDmFApqYQOQCGAHhAM70A0x6L7ACsAjQwtQqhIkwATxDUGbABaMAJsADu9HrAC-xHd3TZqNaCvEHiFcuaKTjAMzAMAzAFIu28hUXPY9ABYPQxIAI2AwTABbV2DtAGMYMEZhABlGUOpsQjBSAFdqfRDmAEFWNkIAbW0JSQxZeX94xlEKYFJpTzrYFRbGKvoAJgAGAEYANi5_EdGAdimhsYAOBZmATlXhkfoAXW09dB2Q6TL2KprtdBk5BgA3RmwCrUkD2CPiNloIagrYaslapJoIwoo16IA-T0AWPKAI7VAMryXTq1zBoUYpARkmoURAyjYZzs3VgDmA8Tyv3on3IP2edUs3V6ySqLhc42GrM4LgArBzWcN2eMWWyXLMRoLZtzWXsXiFuoCSMDQQxAIg2gDylQB66YBAeUAWHKAVWVALLy6KkDQYKLR0pI9P6f2Zox5nACPLZASdtoCS1mto5oxtErN6Ex2MYuN-sskRJJZIp3w4l10vtgUVRAGtUsJGiGSNhUwBlGTGcQxyRIhi9JTUFTU7q0gkWqqVJD1G7-KLCeix5ANsEJ5itnQ7SU0_YhPY6ADcQA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+<h1 class="tittle_w3_agileinfo">我国社会组织发展现状</h1>
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+     option = {
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    }
+  },
+  legend: {},
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  xAxis: [
+    {
+      type: 'category',
+      data: ['2016', '2017', '2018', '2019', '2020']
+    }
+  ],
+  yAxis: [
+    {
+      type: 'value'
+    }
+  ],
+  series: [
+    {
+      name: '社会团体',
+      type: 'bar',
+      emphasis: {
+        focus: 'series'
+      },
+      data: [336000,355000,366000,372000,375000]
+    },
+        {
+      name: '民办非企业单位',
+      type: 'bar',
+      data: [361000,400000,444000,487000,511000],
+      emphasis: {
+        focus: 'series'
+      },
+      markLine: {
+        lineStyle: {
+          type: 'dashed'
+        },
+        data: [[{ type: 'min' }, { type: 'max' }]]
+      }
+    },
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+<a class="btn btn-primary btn-lg" href="index" role="button">Back to Home</a>
+</body>
+</html>
